@@ -1,0 +1,6 @@
+fsm_toggle.c:9:6:constructorFSM_toggle	24	static
+fsm_toggle.c:21:6:call	16	static
+fsm_toggle.c:24:6:fsmUp	16	static
+fsm_toggle.c:28:6:fsmUpping	16	static
+fsm_toggle.c:34:6:fsmDown	16	static
+fsm_toggle.c:38:6:fsmDowing	16	static
