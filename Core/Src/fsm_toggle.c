@@ -6,40 +6,43 @@
  */
 #include "fsm_toggle.h"
 
-void constructorFSM_toggle(struct FSM_toggle* this,GPIO_TypeDef* port,uint16_t pin,
+void fsm_toggle_init(struct fsm_toggle* this,GPIO_TypeDef* port,uint16_t pin,
 		RTC_HandleTypeDef* hrtc,GPIO_TypeDef* portLed,uint16_t pinLed){
-	constructorPb_lib(&this->pb, port, pin);
+	pb_lib_init(&this->pb, port, pin);
 	constructorRtc_lib(&this->rtc, hrtc);
-	constructorLed_lib(&this->led, portLed, pinLed);
-	this->currentState = FSM_DOWN;
-	this->state[FSM_UP] = &fsmUp;
-	this->state[FSM_DOWN] = &fsmDown;
-	this->state[FSM_UPPING] = &fsmUpping;
-	this->state[FSM_DOWNING] = &fsmDowing;
-
+	led_t_init(&this->led, portLed, pinLed);
+	__init_states(this);
 }
-void call(struct FSM_toggle* this){
+void fsm_toggle_call(struct fsm_toggle* this){
 	this->state[this->currentState](this);
 }
-void fsmUp(struct FSM_toggle* this){
-	if(click(&this->pb)==CLICKED)
-		this->currentState = FSM_DOWNING;
+void fsm_toggle_up(struct fsm_toggle* this){
+	if(pb_lib_click(&this->pb)==CLICKED)
+		this->currentState = STATE_DOWNING;
 }
-void fsmUpping(struct FSM_toggle* this){
-	ledOn(&this->led);
+void fsm_toggle_upping(struct fsm_toggle* this){
+	led_on(&this->led);
 	atlTime(&this->rtc);
 	printRTC(&this->rtc);
-	this->currentState = FSM_UP;
+	this->currentState = STATE_UP;
 }
-void fsmDown(struct FSM_toggle* this){
-	if(click(&this->pb)==CLICKED)
-			this->currentState = FSM_UPPING;
+void fsm_toggle_down(struct fsm_toggle* this){
+	if(pb_lib_click(&this->pb)==CLICKED)
+			this->currentState = STATE_UPPING;
 }
-void fsmDowing(struct FSM_toggle* this){
-	ledOff(&this->led);
+void fsm_toggle_dowing(struct fsm_toggle* this){
+	led_off(&this->led);
 	atlTime(&this->rtc);
 	printRTC(&this->rtc);
-	this->currentState = FSM_DOWN;
+	this->currentState = STATE_DOWN;
 }
+void __init_states(struct fsm_toggle* this){
+	this->currentState = STATE_DOWN;
+	this->state[STATE_UP] = &fsm_toggle_up;
+	this->state[STATE_DOWN] = &fsm_toggle_down;
+	this->state[STATE_UPPING] = &fsm_toggle_upping;
+	this->state[STATE_DOWNING] = &fsm_toggle_dowing;
+}
+
 
 

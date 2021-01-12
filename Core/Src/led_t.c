@@ -5,15 +5,15 @@
  *      Author: nicolas-kruger
  */
 
-#include "led_lib.h"
+#include <led_t.h>
 
-void constructorLed_lib(struct Led_lib* this, GPIO_TypeDef* port,uint16_t pin){
+void led_t_init(struct led_t* this, GPIO_TypeDef* port,uint16_t pin){
 	this->port=port;
 	this->pin=pin;
 }
-void ledOn(struct Led_lib* this){
+void led_on(struct led_t* this){
 	HAL_GPIO_WritePin(this->port, this->pin, GPIO_PIN_SET);
 }
-void ledOff(struct Led_lib* this){
+void led_off(struct led_t* this){
 	HAL_GPIO_WritePin(this->port, this->pin, GPIO_PIN_RESET);
 }

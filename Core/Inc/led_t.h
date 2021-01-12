@@ -9,15 +9,15 @@ extern "C" {
 #include "stm32l0xx_hal.h"
 
 
-struct Led_lib
+typedef struct led_t
 {
 	uint16_t pin;
 	GPIO_TypeDef* port;
-};
+}let_t ;
 
-void constructorLed_lib(struct Led_lib* this, GPIO_TypeDef* port,uint16_t pin);
-void ledOn(struct Led_lib* this);
-void ledOff(struct Led_lib* this);
+void led_t_init(struct led_t* this, GPIO_TypeDef* port,uint16_t pin);
+void led_on(struct led_t* this);
+void led_off(struct led_t* this);
 #ifdef __cplusplus
 }
 #endif

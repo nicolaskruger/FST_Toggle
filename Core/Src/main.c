@@ -47,7 +47,7 @@ RTC_HandleTypeDef hrtc;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-struct FSM_toggle fsm;
+fsm_toggle fsm;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -102,10 +102,10 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  constructorFSM_toggle(&fsm, B1_GPIO_Port, B1_Pin, &hrtc, LD2_GPIO_Port, LD2_Pin);
+  fsm_toggle_init(&fsm, B1_GPIO_Port, B1_Pin, &hrtc, LD2_GPIO_Port, LD2_Pin);
   while (1)
   {
-	  call(&fsm);
+	  fsm_toggle_call(&fsm);
 	  HAL_Delay(10);
     /* USER CODE END WHILE */
 

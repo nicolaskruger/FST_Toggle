@@ -1,5 +1,5 @@
 "Core/Src/fsm_toggle.o"
-"Core/Src/led_lib.o"
+"Core/Src/led_t.o"
 "Core/Src/main.o"
 "Core/Src/pb_lib.o"
 "Core/Src/rtc_lib.o"

@@ -14,15 +14,15 @@ extern "C" {
 #define UP 1
 #define DOWN 0
 
-struct Pb_lib
+typedef struct pb_lib
 {
 	uint16_t pin;
 	GPIO_TypeDef* port;
 	uint16_t state;
-};
+}pb_lib;
 
-void constructorPb_lib(struct Pb_lib* this,GPIO_TypeDef* port,uint16_t pin);
-int click(struct Pb_lib* this);
+void pb_lib_init(struct pb_lib* this,GPIO_TypeDef* port,uint16_t pin);
+int pb_lib_click(struct pb_lib* this);
 
 #ifdef __cplusplus
 }

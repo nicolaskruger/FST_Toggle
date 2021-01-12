@@ -27,7 +27,7 @@ Core/Src/fsm_toggle.o: ../Core/Src/fsm_toggle.c ../Core/Inc/fsm_toggle.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h \
- ../Core/Inc/pb_lib.h ../Core/Inc/rtc_lib.h ../Core/Inc/led_lib.h
+ ../Core/Inc/pb_lib.h ../Core/Inc/rtc_lib.h ../Core/Inc/led_t.h
 
 ../Core/Inc/fsm_toggle.h:
 
@@ -91,4 +91,4 @@ Core/Src/fsm_toggle.o: ../Core/Src/fsm_toggle.c ../Core/Inc/fsm_toggle.h \
 
 ../Core/Inc/rtc_lib.h:
 
-../Core/Inc/led_lib.h:
+../Core/Inc/led_t.h:

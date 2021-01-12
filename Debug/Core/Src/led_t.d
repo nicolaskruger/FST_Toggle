@@ -1,4 +1,4 @@
-Core/Src/led_lib.o: ../Core/Src/led_lib.c ../Core/Inc/led_lib.h \
+Core/Src/led_t.o: ../Core/Src/led_t.c ../Core/Inc/led_t.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h \
  ../Core/Inc/stm32l0xx_hal_conf.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc.h \
@@ -28,7 +28,7 @@ Core/Src/led_lib.o: ../Core/Src/led_lib.c ../Core/Inc/led_lib.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h
 
-../Core/Inc/led_lib.h:
+../Core/Inc/led_t.h:
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:
 

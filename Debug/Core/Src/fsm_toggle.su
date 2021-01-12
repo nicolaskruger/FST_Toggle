@@ -1,6 +1,7 @@
-fsm_toggle.c:9:6:constructorFSM_toggle	24	static
-fsm_toggle.c:21:6:call	16	static
-fsm_toggle.c:24:6:fsmUp	16	static
-fsm_toggle.c:28:6:fsmUpping	16	static
-fsm_toggle.c:34:6:fsmDown	16	static
-fsm_toggle.c:38:6:fsmDowing	16	static
+fsm_toggle.c:9:6:fsm_toggle_init	24	static
+fsm_toggle.c:16:6:fsm_toggle_call	16	static
+fsm_toggle.c:19:6:fsm_toggle_up	16	static
+fsm_toggle.c:23:6:fsm_toggle_upping	16	static
+fsm_toggle.c:29:6:fsm_toggle_down	16	static
+fsm_toggle.c:33:6:fsm_toggle_dowing	16	static
+fsm_toggle.c:39:6:__init_states	16	static
